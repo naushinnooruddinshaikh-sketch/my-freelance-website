@@ -1,454 +1,1122 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YourName Studio | Freelance Services</title>
-  <meta name="description" content="Professional data entry, data analytics, Power BI and UI/UX design services.">
-  <style>
-    :root {
-      --bg: #0b1020;
-      --panel: #131b30;
-      --text: #f5f7ff;
-      --muted: #a9b4cc;
-      --accent: #a78bfa;
-      --cyan: #67e8f9;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naushin Studio | Creative Digital Services</title>
 
-    * { box-sizing: border-box; }
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    html { scroll-behavior: smooth; }
+<style>
+:root {
+  --dark:#142b3b;
+  --pink:#087f8c;
+  --cream:#ffffff;
+  --muted:#647787;
+  --border:#e1e9ee;
+  --surface:#f5f8fa;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
 
-    a { color: inherit; text-decoration: none; }
+body {
+  font-family:'DM Sans',sans-serif;
+  color:var(--dark);
+  background:#f2f5f8;
+}
 
-    .container {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
+button,input,select,textarea { font:inherit; }
+button,a { cursor:pointer; }
+a { color:inherit; text-decoration:none; }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 0;
-      gap: 20px;
-    }
+.wallpaper {
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(135deg,rgba(13,31,46,.94),rgba(24,63,78,.88),rgba(13,45,59,.91)),
+    url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2400&q=90')
+    center/cover no-repeat;
+}
 
-    .logo { font-size: 22px; font-weight: 800; }
-    .logo span { color: var(--accent); }
+.wallpaper:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(10,25,38,.10),rgba(10,25,38,.35));
+}
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: 14px;
-      color: var(--muted);
-    }
+.container { width:min(1350px,94%); margin:24px auto; }
 
-    .hero {
-      padding: 90px 0 75px;
-      text-align: center;
-      background:
-        radial-gradient(ellipse at top, #30265e 0%, transparent 60%);
-    }
+.glass {
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(255,255,255,.85);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 15px 45px rgba(12,35,51,.10);
+}
 
-    .tag {
-      display: inline-block;
-      padding: 7px 14px;
-      border: 1px solid #51447b;
-      border-radius: 30px;
-      color: var(--cyan);
-      font-size: 13px;
-    }
+nav {
+  position:sticky;
+  top:12px;
+  z-index:20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:17px 27px;
+  border-radius:15px;
+  gap:15px;
+}
 
-    h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.1;
-      letter-spacing: -2px;
-      margin: 25px 0;
-    }
+.logo {
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-.6px;
+}
+.logo span { color:var(--pink); }
 
-    h1 span {
-      color: var(--accent);
-    }
+.navlinks {
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-size:13px;
+  font-weight:600;
+}
 
-    .hero p {
-      max-width: 650px;
-      margin: 0 auto 28px;
-      color: var(--muted);
-      font-size: 17px;
-    }
+.navlinks a { transition:color .2s; }
+.navlinks a:hover { color:var(--pink); }
 
-    .button {
-      display: inline-block;
-      background: var(--accent);
-      color: #100d20;
-      padding: 13px 22px;
-      border-radius: 10px;
-      border: 0;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 15px;
-    }
+.btn {
+  border:1px solid transparent;
+  border-radius:10px;
+  padding:13px 20px;
+  background:var(--dark);
+  color:white;
+  font-weight:700;
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
 
-    .button.secondary {
-      background: transparent;
-      border: 1px solid #454e67;
-      color: var(--text);
-      margin-left: 8px;
-    }
+.btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(20,43,59,.16);
+  background:#20465a;
+}
 
-    section { padding: 65px 0; }
+.btn.pink { background:var(--pink); color:white; }
+.btn.pink:hover { background:#066a75; }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 35px;
-    }
+.btn.light {
+  background:#fff;
+  color:var(--dark);
+  border:1px solid var(--border);
+}
 
-    .section-heading h2 {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
+.btn.light:hover { background:#edf5f7; }
+.btn.small { padding:10px 15px; font-size:12px; }
 
-    .section-heading p, .muted {
-      color: var(--muted);
-    }
+.hero {
+  margin-top:22px;
+  border-radius:22px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  min-height:570px;
+  border:1px solid rgba(255,255,255,.7);
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
+.hero-text {
+  padding:clamp(28px,5vw,70px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 
-    .card {
-      background: var(--panel);
-      border: 1px solid #26324d;
-      padding: 25px;
-      border-radius: 18px;
-    }
+.eyebrow {
+  font-size:11px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--pink);
+  font-weight:700;
+  margin-bottom:18px;
+}
 
-    .card .icon { font-size: 32px; }
-    .card h3 { margin: 12px 0 6px; }
-    .price { color: var(--cyan); font-weight: 700; }
-    .card p, .card li { color: var(--muted); }
+h1,h2,h3 { font-family:'Playfair Display',serif; }
 
-    .card ul { padding-left: 20px; }
+h1 {
+  font-size:clamp(43px,6vw,79px);
+  line-height:1.04;
+  letter-spacing:-1.5px;
+}
 
-    .portfolio-card {
-      min-height: 170px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+h1 em { color:var(--pink); font-weight:500; }
 
-    .portfolio-card a {
-      color: var(--cyan);
-      font-weight: 700;
-    }
+.hero-text p {
+  color:#60717f;
+  line-height:1.9;
+  font-size:14px;
+  margin:22px 0;
+  max-width:510px;
+}
 
-    .about {
-      max-width: 760px;
-      margin: auto;
-      text-align: center;
-    }
+.actions { display:flex; gap:12px; flex-wrap:wrap; }
 
-    form {
-      max-width: 680px;
-      margin: auto;
-      background: var(--panel);
-      border: 1px solid #26324d;
-      border-radius: 18px;
-      padding: 25px;
-    }
+.hero-image { position:relative; min-height:400px; overflow:hidden; }
 
-    label {
-      display: block;
-      margin: 14px 0 6px;
-      font-weight: 600;
-    }
+.hero-image:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(12,32,46,.25));
+  pointer-events:none;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 13px;
-      border-radius: 9px;
-      border: 1px solid #39445f;
-      background: #0b1020;
-      color: var(--text);
-      font: inherit;
-    }
+.hero-image img {
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0;
+  object-fit:cover;
+}
 
-    textarea { min-height: 110px; resize: vertical; }
+.image-caption {
+  position:absolute;
+  bottom:22px;
+  left:22px;
+  right:22px;
+  z-index:1;
+  background:rgba(15,39,54,.91);
+  color:white;
+  padding:22px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(15px);
+}
 
-    form .button { margin-top: 20px; width: 100%; }
+.image-caption h3 { font-size:25px; }
+.image-caption p {
+  font-size:12px;
+  color:#d0e5e9;
+  margin-top:6px;
+  line-height:1.7;
+}
 
-    .notice {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 12px;
-    }
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin:18px 0 55px;
+}
 
-    footer {
-      border-top: 1px solid #26324d;
-      padding: 25px 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.stat {
+  padding:24px 20px;
+  border-radius:15px;
+  text-align:center;
+  border-top:3px solid var(--pink);
+}
 
-    @media (max-width: 650px) {
-      nav { align-items: flex-start; flex-direction: column; }
-      .hero { padding-top: 60px; }
-      .grid { grid-template-columns: 1fr; }
-      .button.secondary { margin: 12px 0 0; }
-      section { padding: 45px 0; }
-    }
-  </style>
+.stat strong {
+  font-family:'Playfair Display',serif;
+  font-size:30px;
+  display:block;
+}
+
+.stat span {
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:1.3px;
+  font-weight:700;
+}
+
+section { scroll-margin-top:100px; }
+.section { margin:65px 0; }
+.section-head { margin-bottom:24px; }
+
+/* FIX: MAKE SECTION HEADINGS WHITE AND EASY TO READ */
+.section h2,
+.section-head h2 {
+  color:#ffffff;
+  text-shadow:0 2px 12px rgba(0,0,0,.35);
+  font-size:clamp(32px,4vw,48px);
+}
+
+.section-head p {
+  color:#e3edf3;
+  font-size:14px;
+  line-height:1.9;
+  margin-top:10px;
+  max-width:650px;
+  text-shadow:0 1px 5px rgba(0,0,0,.35);
+}
+
+/* Make section labels brighter too */
+.section .eyebrow,
+.section-head .eyebrow {
+  color:#57e0e2;
+}
+
+.filters { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+
+.filter {
+  padding:10px 15px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:white;
+  color:var(--dark);
+  font-size:12px;
+  font-weight:700;
+  transition:all .2s;
+}
+
+.filter:hover { border-color:var(--pink); color:var(--pink); }
+
+.filter.active {
+  background:var(--dark);
+  border-color:var(--dark);
+  color:white;
+}
+
+.search {
+  padding:14px 17px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:white;
+  width:100%;
+  max-width:350px;
+  outline:none;
+  color:var(--dark);
+}
+
+.search:focus {
+  border-color:var(--pink);
+  box-shadow:0 0 0 3px rgba(8,127,140,.09);
+}
+
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+
+.service {
+  border-radius:15px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s,box-shadow .25s;
+  border:1px solid var(--border);
+}
+
+.service:hover {
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(12,35,51,.13);
+}
+
+.service-img {
+  height:190px;
+  position:relative;
+  background:#e7eef1;
+  overflow:hidden;
+}
+
+.service-img img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s;
+}
+
+.service:hover .service-img img { transform:scale(1.05); }
+
+.service-img span {
+  position:absolute;
+  top:13px;
+  left:13px;
+  padding:7px 10px;
+  background:rgba(255,255,255,.96);
+  color:var(--dark);
+  border-radius:6px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+.service-content {
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.service-content h3 { font-size:22px; margin-bottom:8px; }
+
+.service-content p {
+  font-size:12px;
+  line-height:1.8;
+  color:var(--muted);
+  flex:1;
+}
+
+.service-bottom {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:20px;
+  padding-top:15px;
+  border-top:1px solid var(--border);
+}
+
+.price { font-size:12px; font-weight:700; }
+.price small {
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  font-weight:400;
+  margin-top:5px;
+}
+
+.portfolio {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+
+.project {
+  border-radius:15px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:transform .25s,box-shadow .25s;
+}
+
+.project:hover {
+  transform:translateY(-4px);
+  box-shadow:0 18px 35px rgba(12,35,51,.12);
+}
+
+.project img { width:100%; height:220px; object-fit:cover; display:block; }
+.project-text { padding:22px; }
+.project-text h3 { font-size:22px; margin-bottom:8px; }
+.project-text p { font-size:12px; line-height:1.8; color:var(--muted); }
+
+.tag {
+  display:inline-block;
+  background:#e5f2f3;
+  color:#08717c;
+  padding:6px 10px;
+  border-radius:5px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.8px;
+  margin-bottom:12px;
+}
+
+.process { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+
+.step {
+  padding:28px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  border-top:3px solid var(--pink);
+}
+
+.step span {
+  font-size:11px;
+  color:var(--pink);
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.step h3 { font-size:23px; margin:15px 0 12px; }
+.step p { font-size:12px; color:var(--muted); line-height:1.9; }
+
+.contact {
+  padding:clamp(25px,5vw,55px);
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  border:1px solid var(--border);
+}
+
+.contact h2 { font-size:38px; color:var(--dark); text-shadow:none; }
+.contact p { font-size:13px; color:var(--muted); line-height:1.9; margin:15px 0; }
+
+footer {
+  text-align:center;
+  padding:30px 10px;
+  color:white;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+/* PRICING PACKAGES */
+.packages-section {
+  margin:65px 0;
+  padding:clamp(25px,4vw,50px);
+  border-radius:22px;
+  background:rgba(255,255,255,.97);
+  border:1px solid var(--border);
+  box-shadow:0 15px 45px rgba(12,35,51,.09);
+}
+
+.packages-heading { text-align:center; max-width:650px; margin:0 auto 38px; }
+
+.packages-heading h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,48px);
+  line-height:1.2;
+  color:var(--dark);
+  text-shadow:none;
+}
+
+.packages-heading p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  margin-top:12px;
+}
+
+.packages-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
+}
+
+.package-card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:29px 24px;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s,box-shadow .25s;
+}
+
+.package-card:hover { transform:translateY(-5px); box-shadow:0 18px 40px rgba(12,35,51,.11); }
+
+.package-card.popular-package {
+  border:2px solid var(--pink);
+  background:linear-gradient(160deg,#fff 55%,#eff9f9);
+}
+
+.package-label {
+  display:inline-block;
+  align-self:flex-start;
+  padding:7px 11px;
+  border-radius:5px;
+  background:#e5f2f3;
+  color:#08717c;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:17px;
+}
+
+.package-card h3 { font-size:28px; margin-bottom:8px; }
+
+.package-description {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  min-height:43px;
+}
+
+.package-price {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(25px,2.5vw,34px);
+  font-weight:700;
+  color:var(--pink);
+  margin:22px 0 6px;
+  overflow-wrap:anywhere;
+}
+
+.package-price-note {
+  color:var(--muted);
+  font-size:11px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
+}
+
+.package-details { list-style:none; margin:15px 0 24px; flex:1; }
+
+.package-details li {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid #edf1f4;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.package-details li span { color:var(--pink); font-weight:700; }
+.package-card .btn { width:100%; border-radius:9px; }
+
+.packages-note {
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.9;
+  max-width:720px;
+  margin:27px auto 0;
+}
+
+/* REQUEST POPUP */
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(8,23,35,.78);
+  padding:18px;
+  overflow-y:auto;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal.open { display:flex; }
+
+.modal-card {
+  width:min(740px,100%);
+  max-height:94vh;
+  overflow-y:auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:clamp(20px,4vw,36px);
+  animation:appear .25s ease;
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+
+@keyframes appear {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.modal-heading { display:flex; justify-content:space-between; gap:15px; margin-bottom:25px; }
+.modal-heading h2 { font-size:34px; color:var(--dark); }
+.modal-heading p { font-size:12px; line-height:1.8; color:var(--muted); margin-top:7px; }
+
+.close {
+  border:1px solid var(--border);
+  border-radius:9px;
+  width:40px;
+  height:40px;
+  background:#f2f6f8;
+  color:var(--dark);
+  font-size:23px;
+  flex-shrink:0;
+}
+
+.close:hover { background:#e4eff2; }
+
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.field { display:flex; flex-direction:column; gap:8px; }
+.field.full { grid-column:1/-1; }
+.field label { font-size:12px; font-weight:700; }
+
+.field input,.field select,.field textarea {
+  width:100%;
+  padding:13px;
+  border:1px solid #dce5eb;
+  border-radius:9px;
+  background:white;
+  color:var(--dark);
+  outline:none;
+}
+
+.field input:focus,.field select:focus,.field textarea:focus {
+  border-color:var(--pink);
+  box-shadow:0 0 0 3px rgba(8,127,140,.08);
+}
+
+.field textarea { min-height:115px; resize:vertical; }
+.hint { font-size:10px; line-height:1.7; color:var(--muted); }
+.form-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+#status { font-size:12px; color:#21734c; line-height:1.7; margin-top:12px; }
+.note { font-size:11px; color:var(--muted); line-height:1.8; margin-top:15px; }
+
+@media(max-width:900px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-image { min-height:330px; }
+  .service-grid,.portfolio { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .packages-grid { grid-template-columns:1fr; max-width:520px; margin:0 auto; }
+  .navlinks { gap:12px; }
+}
+
+@media(min-width:901px) {
+  .popular-package { transform:translateY(-8px); }
+  .popular-package:hover { transform:translateY(-13px); }
+}
+
+@media(max-width:600px) {
+  .container { width:94%; margin:12px auto; }
+  nav { padding:13px 15px; top:5px; }
+  .logo { font-size:21px; }
+  .navlinks { gap:10px; }
+  .navlinks a { display:none; }
+  .hero { margin-top:14px; border-radius:16px; }
+  .hero-text { padding:28px 23px; }
+  h1 { font-size:48px; }
+  .hero-image { min-height:260px; }
+  .image-caption { left:13px; right:13px; bottom:13px; padding:16px; }
+  .stats { gap:7px; margin-bottom:35px; }
+  .stat { padding:15px 4px; }
+  .stat strong { font-size:22px; }
+  .stat span { font-size:8px; letter-spacing:0; }
+  .section,.packages-section { margin:45px 0; }
+  .packages-section { padding:25px 18px; }
+  .service-grid,.portfolio,.process,.contact { grid-template-columns:1fr; }
+  .service-img { height:210px; }
+  .contact h2 { font-size:33px; }
+  .form-grid { grid-template-columns:1fr; }
+  .field.full { grid-column:auto; }
+  .modal { padding:9px; }
+  .modal-card { max-height:96vh; border-radius:14px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header class="container">
-    <nav>
-      <a class="logo" href="#">YourName<span>Studio.</span></a>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#order">Hire Me</a>
+<div class="wallpaper"></div>
+
+<div class="container">
+<nav class="glass">
+  <a class="logo" href="#home">Naushin<span>.</span>Studio</a>
+  <div class="navlinks">
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#process">Process</a>
+    <button class="btn small" onclick="openForm()">Request ↗</button>
+  </div>
+</nav>
+
+<section class="hero glass" id="home">
+  <div class="hero-text">
+    <div class="eyebrow">✦ Your digital workspace</div>
+    <h1>Ideas into<br><em>beautiful work.</em></h1>
+    <p>Data, design and digital support — all in one place. I help organize information, create useful reports and design thoughtful digital experiences for your projects.</p>
+    <div class="actions">
+      <a href="#services" class="btn">Explore 30 services ↓</a>
+      <button class="btn light" onclick="openForm()">Start a project ↗</button>
+    </div>
+    <p style="font-size:11px;letter-spacing:1px">DATA ANALYSIS · EXCEL · UI/UX · DIGITAL SUPPORT</p>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Modern computer and creative workspace">
+    <div class="image-caption">
+      <h3>Your vision, my attention. ✦</h3>
+      <p>Professional digital services with a thoughtful touch.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat glass"><strong>30</strong><span>DIGITAL SERVICES</span></div>
+  <div class="stat glass"><strong>✧</strong><span>PERSONAL APPROACH</span></div>
+  <div class="stat glass"><strong>∞</strong><span>IDEAS TO EXPLORE</span></div>
+</div>
+
+<section class="section" id="services">
+  <div class="section-head">
+    <div class="eyebrow">✦ Services menu</div>
+    <h2>What can I do for you?</h2>
+    <p>Choose a service and click Request. The form will open with your selected service already filled in.</p>
+  </div>
+  <input id="search" class="search" type="search" placeholder="⌕ Search for a service..." aria-label="Search services">
+  <div class="filters" id="filters">
+    <button class="filter active" data-cat="All">All services</button>
+    <button class="filter" data-cat="Data">Data & Excel</button>
+    <button class="filter" data-cat="Design">UI/UX design</button>
+    <button class="filter" data-cat="Documents">Documents</button>
+    <button class="filter" data-cat="Research">Research & support</button>
+  </div>
+  <div class="service-grid" id="serviceGrid"></div>
+</section>
+
+<section class="packages-section" id="packages">
+  <div class="packages-heading">
+    <div class="eyebrow">✦ Simple & transparent pricing</div>
+    <h2>Choose your package.</h2>
+    <p>Flexible packages for your data, design and digital projects. Select a package to include it in your service request.</p>
+  </div>
+
+  <div class="packages-grid">
+    <article class="package-card">
+      <span class="package-label">STARTER</span>
+      <h3>Basic</h3>
+      <p class="package-description">For smaller tasks and simple project requirements.</p>
+      <div class="package-price">₹1,991.96</div>
+      <p class="package-price-note">Basic package</p>
+      <ul class="package-details">
+        <li><span>✓</span> 1 hour of work</li>
+        <li><span>✓</span> Delivery within 2 days</li>
+        <li><span>✓</span> Data entry and formatting</li>
+        <li><span>✓</span> Suitable for smaller tasks</li>
+      </ul>
+      <button class="btn" type="button" onclick="choosePackage('Basic')">Choose Basic ↗</button>
+    </article>
+
+    <article class="package-card popular-package">
+      <span class="package-label">✦ POPULAR CHOICE</span>
+      <h3>Standard</h3>
+      <p class="package-description">For medium-sized tasks that need more time and attention.</p>
+      <div class="package-price">₹2,987.94</div>
+      <p class="package-price-note">Standard package</p>
+      <ul class="package-details">
+        <li><span>✓</span> 3 hours of work</li>
+        <li><span>✓</span> Delivery within 3 days</li>
+        <li><span>✓</span> Spreadsheet or design support</li>
+        <li><span>✓</span> Organized project output</li>
+      </ul>
+      <button class="btn pink" type="button" onclick="choosePackage('Standard')">Choose Standard ↗</button>
+    </article>
+
+    <article class="package-card">
+      <span class="package-label">ADVANCED</span>
+      <h3>Premium</h3>
+      <p class="package-description">For larger tasks and more detailed project requirements.</p>
+      <div class="package-price">₹9,461.83</div>
+      <p class="package-price-note">Premium package</p>
+      <ul class="package-details">
+        <li><span>✓</span> 9 hours of work</li>
+        <li><span>✓</span> Delivery within 4 days</li>
+        <li><span>✓</span> Detailed project support</li>
+        <li><span>✓</span> Suitable for larger tasks</li>
+      </ul>
+      <button class="btn" type="button" onclick="choosePackage('Premium')">Choose Premium ↗</button>
+    </article>
+  </div>
+
+  <p class="packages-note">Delivery time starts after project requirements and materials are confirmed. Please confirm scope, pricing and payment arrangements before work starts.</p>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="section-head">
+    <div class="eyebrow">✦ Portfolio inspiration</div>
+    <h2>Work with a little personality.</h2>
+    <p>These are inspiration cards. Replace them with your real project screenshots as you build your portfolio.</p>
+  </div>
+  <div class="portfolio">
+    <article class="project glass">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Data analytics dashboard concept">
+      <div class="project-text"><span class="tag">DATA</span><h3>Clear insights</h3><p>Data summaries, dashboards and business reporting concepts.</p></div>
+    </article>
+    <article class="project glass">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=900&q=80" alt="Creative graphic design inspiration">
+      <div class="project-text"><span class="tag">DESIGN</span><h3>Creative interfaces</h3><p>Modern visual direction for websites and digital products.</p></div>
+    </article>
+    <article class="project glass">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80" alt="Professional writing and documents">
+      <div class="project-text"><span class="tag">DOCUMENTS</span><h3>Beautiful details</h3><p>Organized documents, presentations and clean layouts.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="eyebrow">✦ How it works</div>
+  <h2>Simple. Clear. Organized.</h2>
+  <div class="process" style="margin-top:24px">
+    <article class="step glass"><span>01 / REQUEST</span><h3>Tell me your idea</h3><p>Select a service and describe your task, deadline and budget.</p></article>
+    <article class="step glass"><span>02 / DISCUSS</span><h3>Confirm the details</h3><p>We discuss requirements, pricing, delivery and any files needed.</p></article>
+    <article class="step glass"><span>03 / DELIVER</span><h3>Get your work</h3><p>I work on the agreed task and arrange delivery with you.</p></article>
+  </div>
+</section>
+
+<section class="section contact glass" id="contact">
+  <div>
+    <div class="eyebrow">✦ Let's create something</div>
+    <h2>Ready for your next project?</h2>
+    <p>Whether you need spreadsheet support, a dashboard, a polished document or a fresh design, share your requirements with me.</p>
+    <button class="btn pink" onclick="openForm()">Request a service ↗</button>
+    <a class="btn light" style="display:inline-block;margin:8px" href="https://www.behance.net/naushinshaikh5" target="_blank" rel="noopener">My Behance</a>
+  </div>
+  <div>
+    <div class="eyebrow">✦ About me</div>
+    <h2 style="font-size:31px">Naushin Nooruddin Shaikh</h2>
+    <p>BCA graduate with interests in data analysis and UI/UX design. I enjoy making information clear, designing user-friendly experiences and helping with digital tasks.</p>
+    <p><strong>Skills:</strong> Excel · SQL · Power BI · Figma · Data Entry · UI/UX Design</p>
+    <p><a href="https://www.behance.net/naushinshaikh5" target="_blank" rel="noopener"><u>Explore my Behance portfolio ↗</u></a></p>
+  </div>
+</section>
+
+<footer>NAUSHIN STUDIO · THOUGHTFUL DATA · BEAUTIFUL DESIGN</footer>
+</div>
+
+<div class="modal" id="requestModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <div class="modal-card">
+    <div class="modal-heading">
+      <div>
+        <div class="eyebrow">✦ Your project starts here</div>
+        <h2 id="formTitle">Request a service.</h2>
+        <p>Complete the details below so I can understand what you need.</p>
       </div>
-    </nav>
-  </header>
+      <button class="close" type="button" onclick="closeForm()" aria-label="Close form">×</button>
+    </div>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <span class="tag">FREELANCE SERVICES · OPEN FOR PROJECTS</span>
-        <h1>Ideas into <span>impact.</span><br>Data into decisions.</h1>
-        <p>
-          Need help with data entry, insightful Power BI dashboards,
-          or beautiful UI/UX designs? Let's bring your next project to life.
-        </p>
-        <a class="button" href="#services">Explore Services</a>
-        <a class="button secondary" href="#order">Start a Project</a>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-heading">
-          <h2>What I Can Do For You</h2>
-          <p>Practical solutions for individuals, startups and businesses.</p>
+    <form name="service-request" method="POST" data-netlify="true" enctype="multipart/form-data" id="requestForm">
+      <input type="hidden" name="form-name" value="service-request">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Full name *</label>
+          <input id="name" name="client_name" required placeholder="Your name">
         </div>
-
-        <div class="grid">
-          <article class="card">
-            <div class="icon">📊</div>
-            <h3>Data Analytics & Power BI</h3>
-            <p>Turn raw data into useful insights and clear reports.</p>
-            <ul>
-              <li>Interactive Power BI dashboards</li>
-              <li>Excel analysis and visualization</li>
-              <li>Data cleaning and reporting</li>
-            </ul>
-            <div class="price">Starting at ₹1,499</div>
-            <p><a class="button" href="#order" data-service="Data Analytics & Power BI">Order Service</a></p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🎨</div>
-            <h3>UI/UX Design</h3>
-            <p>Clean, user-friendly designs for websites and mobile apps.</p>
-            <ul>
-              <li>Website and mobile app UI</li>
-              <li>Wireframes and prototypes</li>
-              <li>Figma design and user flows</li>
-            </ul>
-            <div class="price">Starting at ₹1,999</div>
-            <p><a class="button" href="#order" data-service="UI/UX Design">Order Service</a></p>
-          </article>
-
-          <article class="card">
-            <div class="icon">⌨️</div>
-            <h3>Data Entry</h3>
-            <p>Accurate data organization to help save your time.</p>
-            <ul>
-              <li>PDF to Excel or Word</li>
-              <li>Spreadsheet formatting</li>
-              <li>Web research and data collection</li>
-            </ul>
-            <div class="price">Starting at ₹499</div>
-            <p><a class="button" href="#order" data-service="Data Entry">Order Service</a></p>
-          </article>
-
-          <article class="card">
-            <div class="icon">📈</div>
-            <h3>Excel & Business Reports</h3>
-            <p>Well-organized spreadsheets and easy-to-read reports.</p>
-            <ul>
-              <li>Excel formulas and formatting</li>
-              <li>Charts and summary reports</li>
-              <li>Data organization</li>
-            </ul>
-            <div class="price">Starting at ₹799</div>
-            <p><a class="button" href="#order" data-service="Excel & Business Reports">Order Service</a></p>
-          </article>
+        <div class="field">
+          <label for="email">Email address *</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com">
         </div>
-      </div>
-    </section>
-
-    
-      <div class="container">
-        <div class="section-heading">
-          <h2>Selected Work</h2>
-          <p>Replace these sample cards with your real projects.</p>
+        <div class="field">
+          <label for="phone">WhatsApp / phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91...">
         </div>
-        <div class="grid">
-          <article class="card portfolio-card">
-            <div>
-              <h3>Power BI Dashboard</h3>
-              <p>Business data, interactive charts and key performance indicators.</p>
-            </div><section id="portfolio">
-            <a href="#order">Discuss a similar project →</a>
-          </article>
-          <article class="card portfolio-card">
-            <div>
-              <h3>Mobile App UI/UX</h3>
-              <p>User flows, wireframes and polished Figma screens.</p>
-            </div>
-            <a href="#order">Discuss a similar project →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about">
-        <div class="section-heading">
-          <h2>Let's Work Together</h2>
-        </div>
-        <p class="muted">
-          I help clients organize their data, understand their business
-          performance and design better digital experiences. Every project
-          starts with understanding your goals, requirements and budget.
-        </p>
-      </div>
-    </section>
-
-    <section id="order">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Start Your Project</h2>
-          <p>Tell me what you need, and I'll get back to you.</p>
-        </div>
-
-        <form id="orderForm">
-          <label for="clientName">Your name</label>
-          <input id="clientName" name="clientName" required
-                 placeholder="Enter your name">
-
-          <label for="clientEmail">Your email</label>
-          <input id="clientEmail" name="clientEmail" type="email" required
-                 placeholder="you@example.com">
-
-          <label for="service">Choose a service</label>
-          <select id="service" name="service" required>
-            <option value="">Select a service</option>
-            <option>Data Entry</option>
-            <option>Data Analytics & Power BI</option>
-            <option>UI/UX Design</option>
-            <option>Excel & Business Reports</option>
-            <option>Other / Custom Project</option>
+        <div class="field">
+          <label for="serviceSelect">Service *</label>
+          <select id="serviceSelect" name="service" required>
+            <option value="">Choose a service</option>
           </select>
-
-          <label for="budget">Your budget (INR)</label>
+        </div>
+        <div class="field">
+          <label for="budget">Budget / Package *</label>
           <select id="budget" name="budget" required>
             <option value="">Select your budget</option>
             <option>Under ₹1,000</option>
-            <option>₹1,000–₹3,000</option>
-            <option>₹3,000–₹5,000</option>
-            <option>₹5,000–₹10,000</option>
-            <option>₹10,000+</option>
-            <option>Let's discuss</option>
+            <option>₹1,000 – ₹2,500</option>
+            <option>₹2,500 – ₹5,000</option>
+            <option>₹5,000 – ₹10,000</option>
+            <option>Above ₹10,000</option>
+            <option>Need a quote</option>
           </select>
-
-          <label for="details">Project details</label>
-          <textarea id="details" name="details" required
-                    placeholder="Describe your project and deadline..."></textarea>
-
-          <button class="button" type="submit">Send Project Request</button>
-          <p class="notice">
-            This demo opens your email app to send the request.
-            No payment is collected on this page.
-          </p>
-          <p id="formMessage" class="notice" role="status"></p>
-        </form>
+        </div>
+        <div class="field">
+          <label for="deadline">Preferred deadline *</label>
+          <input id="deadline" name="deadline" type="date" required>
+        </div>
+        <div class="field full">
+          <label for="details">Describe your project *</label>
+          <textarea id="details" name="requirements" required placeholder="What exactly do you need? Include size, number of pages or rows, desired result and any other important details."></textarea>
+        </div>
+        <div class="field full">
+          <label for="file">Attach a reference file (optional)</label>
+          <input id="file" name="attachment" type="file" accept=".pdf,.xlsx,.xls,.csv,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg">
+          <span class="hint">File uploads require compatible form hosting. Avoid uploading confidential information.</span>
+        </div>
+        <div class="field full">
+          <label for="contactMethod">Preferred contact method</label>
+          <select id="contactMethod" name="contact_method">
+            <option>Email</option>
+            <option>WhatsApp</option>
+            <option>Phone</option>
+          </select>
+        </div>
       </div>
-    </section>
-  </main>
+      <div class="form-actions">
+        <button class="btn" type="submit" id="submitBtn">Send request ↗</button>
+        <button class="btn light" type="button" onclick="closeForm()">Cancel</button>
+      </div>
+      <p id="status" role="status" aria-live="polite"></p>
+      <p class="note">A request is not a confirmed booking. Price, scope and payment arrangements will be agreed before work starts.</p>
+    </form>
+  </div>
+</div>
 
-  <footer>
-    <div class="container">
-      © <span id="year"></span> YourName Studio. All rights reserved.
-      <p>Data Entry · Data Analytics · UI/UX Design</p>
-    </div>
-  </footer>
+<script>
+const services = [
+["Data Entry","Data","Enter and organize information in spreadsheets and systems.","photo-1460925895917-afdab827c52f"],
+["Excel Data Cleaning","Data","Remove duplicates, correct errors and tidy datasets.","photo-1551288049-bebda4e38f71"],
+["Excel Formatting","Data","Make spreadsheets professional, readable and consistent.","photo-1484480974693-6ca0a78fb36b"],
+["Excel Formulas","Data","Help with IF, SUMIF, XLOOKUP and other formulas.","photo-1516321318423-f06f85e504b3"],
+["Google Sheets","Data","Organize, format and improve Google Sheets.","photo-1553877522-43269d4ea984"],
+["PDF to Excel","Documents","Convert supported tables into editable spreadsheets.","photo-1455390582262-044cdead277a"],
+["PDF to Word","Documents","Convert supported PDF content into editable documents.","photo-1517842645767-c639042777db"],
+["Copy-Paste Tasks","Data","Transfer information between documents and websites.","photo-1456324504439-367cee3b3c32"],
+["Web Research","Research","Collect public information and organize findings.","photo-1434030216411-0b793f4b4173"],
+["Product Listings","Research","Prepare product titles, descriptions and listing details.","photo-1472851294608-062f824d29cc"],
+["Data Validation","Data","Check data for missing values and inconsistencies.","photo-1461749280684-dccba630e2f6"],
+["CSV Formatting","Data","Standardize columns, labels, dates and CSV files.","photo-1516321318423-f06f85e504b3"],
+["Data Analysis","Data","Explore data and summarize trends and findings.","photo-1543286386-713bdd548da4"],
+["Power BI Dashboard","Data","Build clear dashboards from suitable datasets.","photo-1551288049-bebda4e38f71"],
+["MIS Reports","Data","Prepare structured management and operational reports.","photo-1460925895917-afdab827c52f"],
+["Data Visualization","Data","Present information through readable charts.","photo-1509228468518-180dd4864904"],
+["SQL Query Support","Data","Help with queries, filters, joins and summaries.","photo-1518770660439-4636190af475"],
+["Resume Formatting","Documents","Improve the layout and readability of your resume.","photo-1586281380349-632531db7ed4"],
+["Presentation Design","Documents","Create clean and structured presentations.","photo-1542744173-8e7e53415bb0"],
+["Document Formatting","Documents","Polish document layouts, headings and page styles.","photo-1455390582262-044cdead277a"],
+["UI/UX Design","Design","Create user-centered concepts for digital products.","photo-1558655146-9f40138edfeb"],
+["Figma Wireframes","Design","Map interface structure and screen layouts.","photo-1559028012-481c04fa702d"],
+["Clickable Prototypes","Design","Connect screens into an interactive prototype.","photo-1559028012-481c04fa702d"],
+["Landing Page Design","Design","Design focused landing pages for services or products.","photo-1467232004584-a241de8bcf5d"],
+["Website Redesign","Design","Refresh website layouts and user experience.","photo-1499951360447-b19be8fe80f5"],
+["Mobile App Screens","Design","Design consistent mobile app interfaces.","photo-1512941937669-90a1b58e7e9c"],
+["User Flow Design","Design","Map the steps users take to complete tasks.","photo-1552664730-d307ca884978"],
+["Moodboard Creation","Design","Bring colors, visual references and style together.","photo-1513364776144-60967b0f800f"],
+["Competitor Research","Research","Compare publicly available competitor information.","photo-1454165804606-c3d57bc86b40"],
+["Custom Digital Task","Research","Have a different task? Share your idea and requirements.","photo-1497366754035-f200968a6e72"]
+];
 
-  <script>
-    // Replace this with the email address where you want to receive orders.
-    const OWNER_EMAIL = "your-email@example.com";
+const grid = document.getElementById("serviceGrid");
+const select = document.getElementById("serviceSelect");
+const modal = document.getElementById("requestModal");
+let category = "All";
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+function renderServices() {
+  const q = document.getElementById("search").value.toLowerCase().trim();
+  const results = services.filter(s =>
+    (category === "All" || s[1] === category) &&
+    (s[0].toLowerCase().includes(q) || s[2].toLowerCase().includes(q))
+  );
 
-    document.querySelectorAll("[data-service]").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("service").value =
-          link.dataset.service;
-      });
-    });
+  grid.innerHTML = results.map(s => {
+    const number = services.indexOf(s) + 1;
+    const safeName = s[0].replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+    return `
+      <article class="service glass">
+        <div class="service-img">
+          <img loading="lazy"
+            src="https://images.unsplash.com/${s[3]}?auto=format&fit=crop&w=850&q=80"
+            alt="${s[0]}"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=850&q=80'">
+          <span>SERVICE ${String(number).padStart(2,"0")}</span>
+        </div>
+        <div class="service-content">
+          <h3>${s[0]}</h3>
+          <p>${s[2]}</p>
+          <div class="service-bottom">
+            <span class="price">Custom quote<small>Price confirmed with you</small></span>
+            <button class="btn small" onclick="openForm('${safeName}')">Request ↗</button>
+          </div>
+        </div>
+      </article>`;
+  }).join("");
 
-    document.getElementById("orderForm").addEventListener("submit", (event) => {
-      event.preventDefault();
+  if (!results.length) {
+    grid.innerHTML = '<p style="color:white">No services found. Try a different search.</p>';
+  }
+}
 
-      const form = event.currentTarget;
-      if (!form.reportValidity()) return;
+services.forEach(s => {
+  const option = document.createElement("option");
+  option.value = s[0];
+  option.textContent = s[0];
+  select.appendChild(option);
+});
 
-      const data = new FormData(form);
-      const subject = encodeURIComponent(
-        "New project enquiry - " + data.get("service")
-      );
+document.getElementById("filters").addEventListener("click", e => {
+  const button = e.target.closest("[data-cat]");
+  if (!button) return;
+  category = button.dataset.cat;
+  document.querySelectorAll(".filter").forEach(b => b.classList.toggle("active", b === button));
+  renderServices();
+});
 
-      const body = encodeURIComponent(
-        "New website project enquiry\n\n" +
-        "Name: " + data.get("clientName") + "\n" +
-        "Email: " + data.get("clientEmail") + "\n" +
-        "Service: " + data.get("service") + "\n" +
-        "Budget: " + data.get("budget") + "\n" +
-        "Project details: " + data.get("details")
-      );
+document.getElementById("search").addEventListener("input", renderServices);
 
-      if (OWNER_EMAIL === "your-email@example.com") {
-        document.getElementById("formMessage").textContent =
-          "Setup needed: replace OWNER_EMAIL in the code with your email address.";
-        return;
+function choosePackage(packageName) {
+  const prices = {
+    "Basic":"₹1,991.96",
+    "Standard":"₹2,987.94",
+    "Premium":"₹9,461.83"
+  };
+
+  const budgets = {
+    "Basic":"₹1,000 – ₹2,500",
+    "Standard":"₹2,500 – ₹5,000",
+    "Premium":"₹5,000 – ₹10,000"
+  };
+
+  openForm();
+  document.getElementById("budget").value = budgets[packageName];
+
+  const details = document.getElementById("details");
+  const packageInfo = "Selected package: " + packageName + " — " + prices[packageName] + "\n";
+  details.value = packageInfo + details.value;
+  setTimeout(() => details.focus(),150);
+}
+
+function openForm(serviceName="") {
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
+  if (serviceName) select.value=serviceName;
+  document.getElementById("status").textContent="";
+  setTimeout(() => document.getElementById("name").focus(),100);
+}
+
+function closeForm() {
+  modal.classList.remove("open");
+  document.body.style.overflow="";
+}
+
+modal.addEventListener("click",e => {
+  if (e.target === modal) closeForm();
+});
+
+document.addEventListener("keydown",e => {
+  if (e.key === "Escape") closeForm();
+});
+
+const deadline = document.getElementById("deadline");
+const now = new Date();
+deadline.min = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+
+document.getElementById("requestForm").addEventListener("submit",async e => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const status = document.getElementById("status");
+  const button = document.getElementById("submitBtn");
+
+  if (!form.reportValidity()) return;
+
+  button.disabled=true;
+  button.textContent="Sending...";
+  status.textContent="";
+
+  try {
+    const body = new URLSearchParams();
+
+    for (const [key,value] of new FormData(form)) {
+      if (value instanceof File) {
+        if (value.name) throw new Error("File upload requires a configured upload service.");
+      } else {
+        body.append(key,value);
       }
+    }
 
-      document.getElementById("formMessage").textContent =
-        "Your email app should open. Please send the prepared message to submit your enquiry.";
-
-      window.location.href =
-        "mailto:" + OWNER_EMAIL + "?subject=" + subject + "&body=" + body;
+    const response = await fetch("/", {
+      method:"POST",
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:body.toString()
     });
-  </script>
+
+    if (!response.ok) throw new Error("Submission failed");
+
+    status.textContent="Your request was submitted. Thank you!";
+    form.reset();
+  } catch(error) {
+    status.textContent="Could not send the request. Deploy on Netlify and enable form handling. File uploads need a configured upload service.";
+  } finally {
+    button.disabled=false;
+    button.textContent="Send request ↗";
+  }
+});
+
+renderServices();
+</script>
 </body>
 </html>
+
+
 
 
 
