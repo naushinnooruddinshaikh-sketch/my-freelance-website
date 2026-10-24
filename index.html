@@ -2,289 +2,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YourName Studio | Freelance Services</title>
+  <meta name="description" content="Professional data entry, data analytics, Power BI and UI/UX design services.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #131b30;
+      --text: #f5f7ff;
+      --muted: #a9b4cc;
+      --accent: #a78bfa;
+      --cyan: #67e8f9;
+    }
 
-    <meta name="google-site-verification" content="3fyKi6WuZmsX2AppPAQVqOZF3muhpBDIb6LU0zzEYH8">
+    * { box-sizing: border-box; }
 
-    <meta name="description" content="Naushin Studio offers professional data entry, Power BI and data analytics, and UI/UX design services.">
+    html { scroll-behavior: smooth; }
 
-    <title>Naushin Studio | Creative Digital Services</title>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    a { color: inherit; text-decoration: none; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f8f7fc;
-            color: #25233a;
-            line-height: 1.6;
-        }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      gap: 20px;
+    }
 
-        header {
-            background: #ffffff;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-        }
+    .logo { font-size: 22px; font-weight: 800; }
+    .logo span { color: var(--accent); }
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #7254d6;
-        }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--muted);
+    }
 
-        nav a {
-            color: #333047;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
-        }
+    .hero {
+      padding: 90px 0 75px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, #30265e 0%, transparent 60%);
+    }
 
-        nav a:hover {
-            color: #7254d6;
-        }
+    .tag {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #51447b;
+      border-radius: 30px;
+      color: var(--cyan);
+      font-size: 13px;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 100px 20px 85px;
-            background: linear-gradient(135deg, #eee9ff, #ffffff);
-        }
+    h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin: 25px 0;
+    }
 
-        .hero h1 {
-            font-size: clamp(34px, 6vw, 54px);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
+    h1 span {
+      color: var(--accent);
+    }
 
-        .hero h1 span {
-            color: #7254d6;
-        }
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 17px;
+    }
 
-        .hero p {
-            max-width: 650px;
-            margin: 0 auto 30px;
-            color: #666277;
-            font-size: 17px;
-        }
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: #100d20;
+      padding: 13px 22px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 15px;
+    }
 
-        .button {
-            display: inline-block;
-            background: #7254d6;
-            color: #ffffff;
-            padding: 13px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .button.secondary {
+      background: transparent;
+      border: 1px solid #454e67;
+      color: var(--text);
+      margin-left: 8px;
+    }
 
-        .button:hover {
-            background: #5b40b7;
-        }
+    section { padding: 65px 0; }
 
-        section {
-            padding: 70px 8%;
-        }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
 
-        .section-description {
-            text-align: center;
-            color: #716d80;
-            margin-bottom: 35px;
-        }
+    .section-heading p, .muted {
+      color: var(--muted);
+    }
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-            margin-top: 35px;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
 
-        .service-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(35, 25, 70, 0.06);
-            border: 1px solid #eeeaf8;
-        }
+    .card {
+      background: var(--panel);
+      border: 1px solid #26324d;
+      padding: 25px;
+      border-radius: 18px;
+    }
 
-        .service-card .icon {
-            font-size: 35px;
-            margin-bottom: 15px;
-        }
+    .card .icon { font-size: 32px; }
+    .card h3 { margin: 12px 0 6px; }
+    .price { color: var(--cyan); font-weight: 700; }
+    .card p, .card li { color: var(--muted); }
 
-        .service-card h3 {
-            margin-bottom: 12px;
-            font-size: 21px;
-        }
+    .card ul { padding-left: 20px; }
 
-        .service-card p {
-            color: #716d80;
-            font-size: 15px;
-        }
+    .portfolio-card {
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .about {
-            background: #ffffff;
-            text-align: center;
-        }
+    .portfolio-card a {
+      color: var(--cyan);
+      font-weight: 700;
+    }
 
-        .about p {
-            max-width: 720px;
-            margin: 15px auto 0;
-            color: #716d80;
-        }
+    .about {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+    }
 
-        .contact {
-            text-align: center;
-            background: #eee9ff;
-        }
+    form {
+      max-width: 680px;
+      margin: auto;
+      background: var(--panel);
+      border: 1px solid #26324d;
+      border-radius: 18px;
+      padding: 25px;
+    }
 
-        .contact p {
-            margin: 15px auto 25px;
-            color: #625d75;
-        }
+    label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: 600;
+    }
 
-        footer {
-            text-align: center;
-            padding: 25px 15px;
-            background: #25233a;
-            color: #ffffff;
-            font-size: 14px;
-        }
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border-radius: 9px;
+      border: 1px solid #39445f;
+      background: #0b1020;
+      color: var(--text);
+      font: inherit;
+    }
 
-        @media (max-width: 600px) {
-            header {
-                justify-content: center;
-                text-align: center;
-            }
+    textarea { min-height: 110px; resize: vertical; }
 
-            nav a {
-                margin: 0 7px;
-            }
+    form .button { margin-top: 20px; width: 100%; }
 
-            .hero {
-                padding: 70px 20px;
-            }
+    .notice {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
 
-            section {
-                padding: 55px 6%;
-            }
-        }
-    </style>
+    footer {
+      border-top: 1px solid #26324d;
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      nav { align-items: flex-start; flex-direction: column; }
+      .hero { padding-top: 60px; }
+      .grid { grid-template-columns: 1fr; }
+      .button.secondary { margin: 12px 0 0; }
+      section { padding: 45px 0; }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="container">
+    <nav>
+      <a class="logo" href="#">YourName<span>Studio.</span></a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#order">Hire Me</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <div class="logo">Naushin Studio</div>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="tag">FREELANCE SERVICES · OPEN FOR PROJECTS</span>
+        <h1>Ideas into <span>impact.</span><br>Data into decisions.</h1>
+        <p>
+          Need help with data entry, insightful Power BI dashboards,
+          or beautiful UI/UX designs? Let's bring your next project to life.
+        </p>
+        <a class="button" href="#services">Explore Services</a>
+        <a class="button secondary" href="#order">Start a Project</a>
+      </div>
+    </section>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What I Can Do For You</h2>
+          <p>Practical solutions for individuals, startups and businesses.</p>
+        </div>
 
-    <main>
-        <section class="hero" id="home">
-            <h1>Creative Solutions for<br><span>Your Digital Growth</span></h1>
+        <div class="grid">
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Data Analytics & Power BI</h3>
+            <p>Turn raw data into useful insights and clear reports.</p>
+            <ul>
+              <li>Interactive Power BI dashboards</li>
+              <li>Excel analysis and visualization</li>
+              <li>Data cleaning and reporting</li>
+            </ul>
+            <div class="price">Starting at ₹1,499</div>
+            <p><a class="button" href="#order" data-service="Data Analytics & Power BI">Order Service</a></p>
+          </article>
 
-            <p>
-                Helping individuals and businesses work smarter with
-                reliable data entry, insightful data analytics, and
-                thoughtful UI/UX design.
-            </p>
+          <article class="card">
+            <div class="icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>Clean, user-friendly designs for websites and mobile apps.</p>
+            <ul>
+              <li>Website and mobile app UI</li>
+              <li>Wireframes and prototypes</li>
+              <li>Figma design and user flows</li>
+            </ul>
+            <div class="price">Starting at ₹1,999</div>
+            <p><a class="button" href="#order" data-service="UI/UX Design">Order Service</a></p>
+          </article>
 
-            <a class="button" href="#services">Explore My Services</a>
-        </section>
+          <article class="card">
+            <div class="icon">⌨️</div>
+            <h3>Data Entry</h3>
+            <p>Accurate data organization to help save your time.</p>
+            <ul>
+              <li>PDF to Excel or Word</li>
+              <li>Spreadsheet formatting</li>
+              <li>Web research and data collection</li>
+            </ul>
+            <div class="price">Starting at ₹499</div>
+            <p><a class="button" href="#order" data-service="Data Entry">Order Service</a></p>
+          </article>
 
-        <section id="services">
-            <h2 class="section-title">My Services</h2>
+          <article class="card">
+            <div class="icon">📈</div>
+            <h3>Excel & Business Reports</h3>
+            <p>Well-organized spreadsheets and easy-to-read reports.</p>
+            <ul>
+              <li>Excel formulas and formatting</li>
+              <li>Charts and summary reports</li>
+              <li>Data organization</li>
+            </ul>
+            <div class="price">Starting at ₹799</div>
+            <p><a class="button" href="#order" data-service="Excel & Business Reports">Order Service</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <p class="section-description">
-                Professional digital services tailored to your needs.
-            </p>
-
-            <div class="services">
-                <article class="service-card">
-                    <div class="icon">📊</div>
-                    <h3>Data Analytics &amp; Power BI</h3>
-                    <p>
-                        Transform your data into meaningful insights with
-                        interactive Power BI dashboards, reports,
-                        visualizations, and Excel data analysis.
-                    </p>
-                </article>
-
-                <article class="service-card">
-                    <div class="icon">⌨️</div>
-                    <h3>Data Entry</h3>
-                    <p>
-                        Accurate data entry, spreadsheet organization,
-                        data cleaning, web research, and document formatting
-                        to keep your information organized.
-                    </p>
-                </article>
-
-                <article class="service-card">
-                    <div class="icon">🎨</div>
-                    <h3>UI/UX Design</h3>
-                    <p>
-                        User-friendly website and mobile app designs,
-                        wireframes, prototypes, user flows, and modern
-                        Figma interfaces for digital products.
-                    </p>
-                </article>
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Selected Work</h2>
+          <p>Replace these sample cards with your real projects.</p>
+        </div>
+        <div class="grid">
+          <article class="card portfolio-card">
+            <div>
+              <h3>Power BI Dashboard</h3>
+              <p>Business data, interactive charts and key performance indicators.</p>
             </div>
-        </section>
+            <a href="#order">Discuss a similar project →</a>
+          </article>
+          <article class="card portfolio-card">
+            <div>
+              <h3>Mobile App UI/UX</h3>
+              <p>User flows, wireframes and polished Figma screens.</p>
+            </div>
+            <a href="#order">Discuss a similar project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <section class="about" id="about">
-            <h2 class="section-title">About Me</h2>
+    <section id="about">
+      <div class="container about">
+        <div class="section-heading">
+          <h2>Let's Work Together</h2>
+        </div>
+        <p class="muted">
+          I help clients organize their data, understand their business
+          performance and design better digital experiences. Every project
+          starts with understanding your goals, requirements and budget.
+        </p>
+      </div>
+    </section>
 
-            <p>
-                Hello! I'm Naushin, a BCA graduate interested in data
-                analytics and UI/UX design. I enjoy turning ideas into
-                clear visual experiences and helping businesses organize
-                and understand their data.
-            </p>
-        </section>
+    <section id="order">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Start Your Project</h2>
+          <p>Tell me what you need, and I'll get back to you.</p>
+        </div>
 
-        <section class="contact" id="contact">
-            <h2 class="section-title">Let's Work Together</h2>
+        <form id="orderForm">
+          <label for="clientName">Your name</label>
+          <input id="clientName" name="clientName" required
+                 placeholder="Enter your name">
 
-            <p>
-                Have a project in mind? Get in touch to discuss how I can help.
-            </p>
+          <label for="clientEmail">Your email</label>
+          <input id="clientEmail" name="clientEmail" type="email" required
+                 placeholder="you@example.com">
 
-            <a class="button"
-               href="mailto:naushinnooruddinshaikh@gmail.com">
-                Contact Me
-            </a>
-        </section>
-    </main>
+          <label for="service">Choose a service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option>Data Entry</option>
+            <option>Data Analytics & Power BI</option>
+            <option>UI/UX Design</option>
+            <option>Excel & Business Reports</option>
+            <option>Other / Custom Project</option>
+          </select>
 
-    <footer>
-        <p>&copy; 2026 Naushin Studio. All rights reserved.</p>
-    </footer>
+          <label for="budget">Your budget (INR)</label>
+          <select id="budget" name="budget" required>
+            <option value="">Select your budget</option>
+            <option>Under ₹1,000</option>
+            <option>₹1,000–₹3,000</option>
+            <option>₹3,000–₹5,000</option>
+            <option>₹5,000–₹10,000</option>
+            <option>₹10,000+</option>
+            <option>Let's discuss</option>
+          </select>
 
+          <label for="details">Project details</label>
+          <textarea id="details" name="details" required
+                    placeholder="Describe your project and deadline..."></textarea>
+
+          <button class="button" type="submit">Send Project Request</button>
+          <p class="notice">
+            This demo opens your email app to send the request.
+            No payment is collected on this page.
+          </p>
+          <p id="formMessage" class="notice" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> YourName Studio. All rights reserved.
+      <p>Data Entry · Data Analytics · UI/UX Design</p>
+    </div>
+  </footer>
+
+  <script>
+    // Replace this with the email address where you want to receive orders.
+    const OWNER_EMAIL = "your-email@example.com";
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.querySelectorAll("[data-service]").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("service").value =
+          link.dataset.service;
+      });
+    });
+
+    document.getElementById("orderForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const form = event.currentTarget;
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const subject = encodeURIComponent(
+        "New project enquiry - " + data.get("service")
+      );
+
+      const body = encodeURIComponent(
+        "New website project enquiry\n\n" +
+        "Name: " + data.get("clientName") + "\n" +
+        "Email: " + data.get("clientEmail") + "\n" +
+        "Service: " + data.get("service") + "\n" +
+        "Budget: " + data.get("budget") + "\n" +
+        "Project details: " + data.get("details")
+      );
+
+      if (OWNER_EMAIL === "your-email@example.com") {
+        document.getElementById("formMessage").textContent =
+          "Setup needed: replace OWNER_EMAIL in the code with your email address.";
+        return;
+      }
+
+      document.getElementById("formMessage").textContent =
+        "Your email app should open. Please send the prepared message to submit your enquiry.";
+
+      window.location.href =
+        "mailto:" + OWNER_EMAIL + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
 </body>
 </html>
+
 
