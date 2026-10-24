@@ -867,8 +867,8 @@ footer {
       <button class="close" type="button" onclick="closeForm()" aria-label="Close form">×</button>
     </div>
 
-    <form name="service-request" method="POST" data-netlify="true" enctype="multipart/form-data" id="requestForm">
-      <input type="hidden" name="form-name" value="service-request">
+    <form name="service-request" method="POST" action="/" data-netlify="true" id="requestForm">
+  <input type="hidden" name="form-name" value="service-request">
       <div class="form-grid">
         <div class="field">
           <label for="name">Full name *</label>
@@ -1070,54 +1070,9 @@ const deadline = document.getElementById("deadline");
 const now = new Date();
 deadline.min = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
 
-document.getElementById("requestForm").addEventListener("submit",async e => {
-  e.preventDefault();
-  const form = e.currentTarget;
-  const status = document.getElementById("status");
-  const button = document.getElementById("submitBtn");
 
-  if (!form.reportValidity()) return;
-
-  button.disabled=true;
-  button.textContent="Sending...";
-  status.textContent="";
-
-  try {
-    const body = new URLSearchParams();
-
-    for (const [key,value] of new FormData(form)) {
-      if (value instanceof File) {
-        if (value.name) throw new Error("File upload requires a configured upload service.");
-      } else {
-        body.append(key,value);
-      }
-    }
-
-    const response = await fetch("/", {
-      method:"POST",
-      headers:{"Content-Type":"application/x-www-form-urlencoded"},
-      body:body.toString()
-    });
-
-    if (!response.ok) throw new Error("Submission failed");
-
-    status.textContent="Your request was submitted. Thank you!";
-    form.reset();
-  } catch(error) {
-    status.textContent="Could not send the request. Deploy on Netlify and enable form handling. File uploads need a configured upload service.";
-  } finally {
-    button.disabled=false;
-    button.textContent="Send request ↗";
-  }
-});
 
 renderServices();
 </script>
 </body>
 </html>
-
-
-
-
-
-
